@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+
+
+{% extends "base.html" %}
 {% block 'title' %}List of Categories{% endblock %}
 {% block 'content' %}
 
@@ -15,4 +17,4 @@
 
 <p><a href="{% url 'inventory:addcategory' %}">Add A New Category</a></p>
 
-{% endblock %}
+{% endblock 'content' %}
