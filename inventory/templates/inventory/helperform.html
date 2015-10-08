@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+
+
+
+{% extends 'base.html' %}
+
+{% block 'title' %}{% if song %}Update{% else %}Add{% endif %} Song{% endblock %}
+
+{% block 'extrascripts' %}
+<script>
+// $(function () {
+$(document).ready(function () {
+ $('#songform').submit(
+    function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'post',
+            data: $(this).serialize(),
+            success: function (data) {
+                    $('#status').text('Successfully updated ' + data.title).show().fadeOut(5000);
+                    
+                    console.log(data);
+                },
+            error: function (xd4, statusText, errorText) {
+                    $('#status').text('Uh oh. Something didn\'t go right.');
+                    console.log("error was " + statusText + " and error text was " + errorText);
+                },
+        });
+    });
+ ${"#increment"}.click(
+ 	function(event) {
+ 		form = $(this).parents("form");
+ 		form.find("#id_musician").val() +1);
+ 		form.submit()
+ 		);
+ 	});
+   ${"#decrement"}.click(
+ 	function(event) {
+ 		form = $(this).parents("form");
+ 		form.find("#id_musician").val() -1);
+ 		form.submit()
+ 		);
+ 	});
+});
+</script>
+
+
+{% endblock %}
+
+{% block 'content' %}
+    <h1>{% if song %}Update{% else %}Add{% endif %} A Song</h1>
+
+    <div id="status" class="alert alert-success" style="display: none;" role="alert"></div>
+
+    <div id="result">
+    </div>
+    <form action="." method='post' id="songform">
+    {% csrf_token %}
+    <table class="table">
+    {{ form }}
+    <tr>
+    	<td><input type="submit"
+        <td><button id="increment" class="button btn" onclick=''> + </button> </td>
+        <td><button id="decrement" class="button btn" onclick=''> - </button> </td>
+    </tr>
+    </table>
+    </form>
+
+{% endblock %}

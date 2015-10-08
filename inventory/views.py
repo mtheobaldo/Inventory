@@ -9,10 +9,12 @@ from django.forms.models import model_to_dict
 from .models import Item, Category
 
 # Create your views here.
+
+#dan's cheatcode! 
 class AjaxableResponseMixin(object):
     """
-    Mixin to add AJAX
-    Must be used with an object-based FormView
+    Mixin to add AJAX support to a form.
+    Must be used with an object-based FormView (e.g. CreateView)
     """
     def form_invalid(self, form):
         response = super(AjaxableResponseMixin, self).form_invalid(form)
@@ -22,6 +24,9 @@ class AjaxableResponseMixin(object):
             return response
 
     def form_valid(self, form):
+        # We make sure to call the parent's form_valid() method because
+        # it might do some processing (in the case of CreateView, it will
+        # call form.save() for example).
         response = super(AjaxableResponseMixin, self).form_valid(form)
         if self.request.is_ajax():
             data = model_to_dict(self.object)
@@ -38,7 +43,7 @@ class CategoryDetailView(DetailView):
 
 class CreateCategoryView(CreateView):
     model = Category
-    fields = ['parent', 'name', 'descripton']
+    fields = ['parent', 'name', 'description']
     
     def get_success_url(self):
         return reverse('inventory:categorydetail', args=(self.object.pk,))
@@ -61,7 +66,7 @@ class CreateItemView(CreateView):
     def get_success_url(self):
         return reverse('inventory:categorydetail', args=(self.object.category.id,))
 
-class UpdateItemView(UpdateView):
+class UpdateItemView(AjaxableResponseMixin, UpdateView):
     model = Item
     fields = ['name', 'quantity', 'sku', 'category']
 

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}{% if item %}Update{% else %}Add{% endif %} Item{% endblock %}
+
+{% block 'extrascripts' %}
+<script>
+
+// $(function () {
+$(document).ready(function () {
+
+ $('#itemform').submit(
+    function (event) {
+
+        event.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'post',
+            data: $(this).serialize(),
+            success: function (data) {
+                    $('#status').text('Successfully updated ' + data.name).show().fadeOut(5000);
+                    
+                    console.log(data);
+                },
+            error: function (xd4, statusText, errorText) {
+                    $('#status').text('Uh oh. Something didn\'t go right.');
+                    console.log("error was " + statusText + " and error text was " + errorText);
+                },
+        });
+    });
+
+    $("#increment").click(
+    function (event) {
+        form = $(this).parents("form");
+        form.find("#id_quantity").val(Number(form.find("#id_quantity").val()) + 1);
+        form.submit();
+    });
+
+    $("#decrement").click(
+    function (event) {
+        form = $(this).parents("form");
+        form.find("#id_quantity").val(Number(form.find("#id_quantity").val()) - 1);
+        form.submit();
+    });
+});
+
+</script>
+
+
+{% endblock %}
+
+{% block 'content' %}
+    <div id="status" class="alert alert-success" style="display: none;" role="alert"></div>
+
+    <div id="result">
+    </div>
+    <form action="." method='post' id="itemform">
+    {% csrf_token %}
+    <table class="table">
+    {{ form }}
+    <tr>
+        <td><input type="submit" value="{% if item %}Update{% else %}Add{%endif%} Item"></td>
+        <td><button id="increment" class="btn btn-default"> + </button>  
+            <button id="decrement" class="btn btn-default"> - </button>  </td>
+
+        
+    </tr>
+    </table>
+    </form>
+{% endblock %}

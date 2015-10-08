@@ -1,0 +1,475 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ques",
+				"Question"
+			],
+			[
+				"Boo",
+				"BookListView"
+			],
+			[
+				"text_",
+				"text_to_number"
+			],
+			[
+				"de",
+				"DetailView"
+			],
+			[
+				"Ch",
+				"ChoiceInline"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "base.html",
+			"settings":
+			{
+				"buffer_size": 3455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtheobald/django/catalog/inventory/urls.py",
+			"settings":
+			{
+				"buffer_size": 1085,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{% extends 'base.html' %}\n\n{% block 'title' %}Successfully Deleted{% endblock 'title' %}\n",
+			"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/success.html",
+			"file_size": 0,
+			"file_write_time": 1444262915000000,
+			"settings":
+			{
+				"buffer_size": 89,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/category_list.html",
+			"settings":
+			{
+				"buffer_size": 481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtheobald/django/catalog/inventory/views.py",
+			"settings":
+			{
+				"buffer_size": 2157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mtheobald/django/catalog/catalog/settings.py",
+			"settings":
+			{
+				"buffer_size": 2693,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{% extends 'base.html' %}\n\n{% block 'title' %}\n\n\n\n{% extends 'base.html' %}\n\n{% block 'title' %}{% if song %}Update{% else %}Add{% endif %} Song{% endblock %}\n\n{% block 'extrascripts' %}\n<script>\n// $(function () {\n$(document).ready(function () {\n $('#songform').submit(\n    function (event) {\n        event.preventDefault();\n        $.ajax({\n            url: $(this).attr('action'),\n            type: 'post',\n            data: $(this).serialize(),\n            success: function (data) {\n                    $('#status').text('Successfully updated ' + data.title).show().fadeOut(5000);\n                    \n                    console.log(data);\n                },\n            error: function (xd4, statusText, errorText) {\n                    $('#status').text('Uh oh. Something didn\\'t go right.');\n                    console.log(\"error was \" + statusText + \" and error text was \" + errorText);\n                },\n        });\n    });\n ${\"#increment\"}.click(\n 	function(event) {\n 		form = $(this).parents(\"form\");\n 		form.find(\"#id_musician\").val(Number(form.find(\"#id_musician\").val()) +1));\n 		form.submit()\n 		);\n 	});\n   ${\"#decrement\"}.click(\n 	function(event) {\n 		form = $(this).parents(\"form\");\n 		form.find(\"#id_musician\").val(Number() -1));\n 		form.submit()\n 		);\n 	});\n});\n</script>\n\n\n{% endblock %}\n\n{% block 'content' %}\n    <h1>{% if song %}Update{% else %}Add{% endif %} A Song</h1>\n\n    <div id=\"status\" class=\"alert alert-success\" style=\"display: none;\" role=\"alert\"></div>\n\n    <div id=\"result\">\n    </div>\n    <form action=\".\" method='post' id=\"songform\">\n    {% csrf_token %}\n    <table class=\"table\">\n    {{ form }}\n    <tr>\n    	<td><input type=\"submit\"\n        <td><button id=\"increment\" class=\"button btn\" onclick=''> + </button> </td>\n        <td><button id=\"decrement\" class=\"button btn\" onclick=''> - </button> </td>\n    </tr>\n    </table>\n    </form>\n\n{% endblock %}",
+			"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/helperform.html",
+			"file_size": 1849,
+			"file_write_time": 1444261152000000,
+			"settings":
+			{
+				"buffer_size": 1896,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/C++/C++.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/mtheobald/django/catalog/templates/base.html",
+		"/Users/mtheobald/django/catalog/inventory/templates/inventory/base.html",
+		"/Users/mtheobald/django/catalog/catalog/settings.py",
+		"/Users/mtheobald/django/catalog/catalog/urls.py",
+		"/Users/mtheobald/C++/Create Image file/just some notes.cpp",
+		"/Users/mtheobald/Desktop/CS3005/main.cpp",
+		"/Users/mtheobald/Desktop/CS3005/Question.cpp",
+		"/Users/mtheobald/Desktop/CS3005/question.h",
+		"/Users/mtheobald/Desktop/<VirtualHost *:80>",
+		"/Users/mtheobald/Desktop/CS3005/web_info.txt",
+		"/Users/mtheobald/Downloads/time-difference-calculator.php",
+		"/Users/mtheobald/Desktop/dns_info.txt",
+		"/Users/mtheobald/Desktop/CS3005/Exponent Quiz.cpp",
+		"/Users/mtheobald/Desktop/CS3005/Exponent Quiz.hpp",
+		"/Users/mtheobald/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/mtheobald/C++/Exponents Quiz/question.cpp",
+		"/Users/mtheobald/C++/Exponents Quiz/question.h",
+		"/Users/mtheobald/C++/Exponents Quiz/exponent_quiz.cpp",
+		"/Users/mtheobald/django/CS4990/blog/blogapp/hello world.cpp",
+		"/Users/mtheobald/django/CS4990/formstut/form3/templates/form3/song_form.html",
+		"/Users/mtheobald/django/CS4990/formstut/form3/models.py",
+		"/Users/mtheobald/django/CS4990/blog/blogapp/views.py",
+		"/Users/mtheobald/django/CS4990/formstut/form1/views.py",
+		"/Users/mtheobald/django/CS4990/blog/blogapp/Python regular expression tutorial.py",
+		"/Users/mtheobald/C++/Create Image file/web_info.txt",
+		"/Users/mtheobald/django/blog/CS4990/blog/blog/car.py",
+		"/Users/mtheobald/django/portfolio/casestudy/templates/casestudy/index.html",
+		"/Users/mtheobald/django/portfolio/templates/base.html",
+		"/Users/mtheobald/Desktop/smtp_info.txt",
+		"/Users/mtheobald/Desktop/system_install_info.txt",
+		"/Users/mtheobald/dns_info.txt",
+		"/Users/mtheobald/django/portfolio/casestudy/templates/casestudy/detail.html",
+		"/Users/mtheobald/django/portfolio/portfolio/settings.py",
+		"/Users/mtheobald/C++/Create Image file/main.cpp",
+		"/Users/mtheobald/C++/Create Image file/dns.txt",
+		"/Users/mtheobald/C++/Create Image file/Image.cpp",
+		"/Users/mtheobald/C++/Create Image file/imageh.h",
+		"/Users/mtheobald/C++/Create Image file/notes",
+		"/Users/mtheobald/django/lib/python2.7/site-packages/django/contrib/admin/templates/admin/base_site.html",
+		"/Users/mtheobald/django/lib/python2.7/site-packages/django/contrib/admin/templates/admin/base.html",
+		"/Users/mtheobald/django/portfolio/casestudy/admin.py",
+		"/Users/mtheobald/django/portfolio/casestudy/models.py",
+		"/Users/mtheobald/django/portfolio/casestudy/urls.py",
+		"/Users/mtheobald/django/portfolio/casestudy/views.py",
+		"/Users/mtheobald/django/portfolio/portfolio/urls.py",
+		"/Users/mtheobald/django/mysite/polls/admin.py",
+		"/Users/mtheobald/django/mysite/mysite/settings.py",
+		"/Users/mtheobald/django/mysite/polls/models.py",
+		"/Users/mtheobald/C++/something.cpp",
+		"/Users/mtheobald/C++/super.cpp",
+		"/Users/mtheobald/C++/firstprogram.h",
+		"/Users/mtheobald/Desktop/Permissions",
+		"/Users/mtheobald/Downloads/3100 find user_group",
+		"/Users/mtheobald/django/django/mysite/polls/models.py",
+		"/Users/mtheobald/django/django/mysite/manage.py",
+		"/Users/mtheobald/Desktop/Classnotes.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"main",
+			"Ice King",
+			"iceking"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "base.html",
+					"settings":
+					{
+						"buffer_size": 3455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								3455
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/mtheobald/django/catalog/inventory/urls.py",
+					"settings":
+					{
+						"buffer_size": 1085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								663,
+								663
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 328.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/success.html",
+					"settings":
+					{
+						"buffer_size": 89,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								89,
+								89
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/category_list.html",
+					"settings":
+					{
+						"buffer_size": 481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/mtheobald/django/catalog/inventory/views.py",
+					"settings":
+					{
+						"buffer_size": 2157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2152,
+								2152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 28.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/mtheobald/django/catalog/catalog/settings.py",
+					"settings":
+					{
+						"buffer_size": 2693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1716,
+								1751
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/mtheobald/django/catalog/inventory/templates/inventory/helperform.html",
+					"settings":
+					{
+						"buffer_size": 1896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								47,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 158.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"base.html",
+				"templates/base.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 98.0,
+	"status_bar_visible": true
+}

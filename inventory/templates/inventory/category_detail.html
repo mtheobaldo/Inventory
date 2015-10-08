@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+ 
+{% block 'title' %}{{ category.name }}{% endblock 'title' %}
+
+
+{% block 'content' %}
+
+    <!-- Comments go here -->
+    <ul>
+    {% for item in category.item_set.all reversed %}
+        <li><a href="{% url 'inventory:itemupdate' item.pk %}" >{{ item.name }}</a></li>
+    {% if forloop.last %}
+    </ul>
+    {% endif %}
+    {% empty %} 
+    
+    
+    <h5>No Items - <a href="{% url 'inventory:additem' %}" >Add An Item?</a></h5>
+    
+    {% endfor %}
+
+    <h5><a href="{% url 'inventory:additem' %}" >Add Another Item</a></h5>
+
+
+{% endblock 'content' %}
