@@ -70,6 +70,9 @@ class UpdateItemView(AjaxableResponseMixin, UpdateView):
     model = Item
     fields = ['name', 'quantity', 'sku', 'category']
 
+    def get_success_url(self):
+        return reverse('inventory:categorydetail', args=(self.object.category.id,))
+
 
 class DeleteItemView(DeleteView):
     model = Item

@@ -18,7 +18,7 @@ $(document).ready(function () {
             type: 'post',
             data: $(this).serialize(),
             success: function (data) {
-                    $('#status').text('Successfully updated ' + data.name).show().fadeOut(5000);
+                    $('#status').text('Successfully updated ' + data.name).show().fadeOut(1000);
                     
                     console.log(data);
                 },
@@ -50,21 +50,28 @@ $(document).ready(function () {
 {% endblock %}
 
 {% block 'content' %}
-    <div id="status" class="alert alert-success" style="display: none;" role="alert"></div>
 
-    <div id="result">
-    </div>
     <form action="." method='post' id="itemform">
     {% csrf_token %}
     <table class="table">
     {{ form }}
     <tr>
         <td><input type="submit" value="{% if item %}Update{% else %}Add{%endif%} Item"></td>
-        <td><button id="increment" class="btn btn-default"> + </button>  
+        <td><h5>Modify Quantity </h5><button id="increment" class="btn btn-default"> + </button>  
             <button id="decrement" class="btn btn-default"> - </button>  </td>
-
-        
     </tr>
+
     </table>
     </form>
+        {% if item %}
+        <a class="btn btn-default" href="{% url 'inventory:deleteitem' object.id %}">Delete</a>
+    {% endif %}
+    <div align="right">
+        <a href="{% url 'inventory:categorylist' %}">  Back to Categories</a>
+    </div>
+    <div id="status" class="alert alert-success" style="display: none;" role="alert"></div>
+
+    <div id="result">
+    </div>
+
 {% endblock %}

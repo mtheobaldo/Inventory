@@ -6,11 +6,20 @@
 {% block 'content' %}
 
     <!-- Comments go here -->
+
+<div style="border-bottom:1px solid black; overflow:hidden;"> 
+<div align="left"><h2>{{ object }}</h2></div>
+
+</div>
+
+
+    
     <ul>
     {% for item in category.item_set.all reversed %}
         <li><a href="{% url 'inventory:itemupdate' item.pk %}" >{{ item.name }}</a></li>
     {% if forloop.last %}
     </ul>
+        <h5><a href="{% url 'inventory:additem' %}" >Add Another Item</a></h5>
     {% endif %}
     {% empty %} 
     
@@ -19,7 +28,7 @@
     
     {% endfor %}
 
-    <h5><a href="{% url 'inventory:additem' %}" >Add Another Item</a></h5>
+<div align="right"><a href="{% url 'inventory:deletecategory' object.id %}">Delete This Category</a></div>
 
 
 {% endblock 'content' %}
